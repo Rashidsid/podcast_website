@@ -33,4 +33,24 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: { drop_console: true },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Separate vendor dependencies into their own chunks
+          if (id.includes('node_modules')) {
+            if (id.includes('motion')) return 'motion'
+            if (id.includes('react')) return 'react-vendor'
+            return 'vendor'
+          }
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
 })

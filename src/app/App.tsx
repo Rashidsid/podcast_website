@@ -786,7 +786,7 @@ function AboutSection({ channelStats, episodeCount }: { channelStats: YouTubeCha
 
           <motion.div initial={{ opacity: 0, x: 30 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.75, delay: 0.12 }} className="relative">
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
-              <img src="/src/img/main.jpg"
+              <img src="/img/main.jpg" loading="lazy"
                 alt="Podcast recording studio" className="w-full object-cover" />
               <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/8" />
             </div>
