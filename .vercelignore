@@ -1,0 +1,10 @@
+node_modules
+.git
+.gitignore
+README.md
+dist
+src
+pnpm-workspace.yaml
+postcss.config.mjs
+vite.config.ts
+default_shadcn_theme.css
