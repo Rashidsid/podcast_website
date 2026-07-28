@@ -1,0 +1,26 @@
+name: Fetch YouTube Videos Daily
+
+on:
+  schedule:
+    # Run daily at midnight UTC (0:00 UTC = 8:00 PM EST)
+    - cron: '0 0 * * *'
+  # Allow manual trigger for testing
+  workflow_dispatch:
+
+jobs:
+  fetch-videos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch YouTube videos
+        run: |
+          curl -X GET \
+            -H "x-auth-token: ${{ secrets.CRON_SECRET }}" \
+            "${{ secrets.VERCEL_FUNCTION_URL }}"
+
+      - name: Upload workflow run logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-logs
+          retention-days: 7
+          if-no-files-found: ignore
