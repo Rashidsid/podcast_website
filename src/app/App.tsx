@@ -9,7 +9,7 @@ import {
   ChevronDown,
   Bookmark, TrendingUp, Globe, Zap
 } from "lucide-react"
-import { getLatestYouTubeComments, getLatestYouTubeVideos, getYouTubeChannelStatistics, YouTubeChannelStatistics, YouTubeComment, YouTubeVideo } from "../lib/youtube"
+import { getLatestYouTubeComments, getLatestYouTubeVideos, getYouTubeChannelStatistics, YouTubeChannelStatistics, YouTubeComment, YouTubeVideo } from "../lib/youtube-firestore"
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 function formatLargeNumber(value: string | number) {
